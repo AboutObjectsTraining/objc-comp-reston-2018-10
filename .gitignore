@@ -1,15 +1,10 @@
 .DS_Store
 
 ## Xcode
-*.xcworkspace
 *.xcworkspacedata
 
-## Build generated
-build/
-DerivedData/
-
 ## Various settings
-xcuserdata/
+**/xcuserdata
 
 ## Other
 *~
