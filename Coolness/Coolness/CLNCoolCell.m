@@ -1,7 +1,12 @@
 #import "CLNCoolCell.h"
 
+const CGFloat CLNHorizontalInset = 12;
+const CGFloat CLNVerticalInset = 8;
+const CGPoint CLNTextOrigin = { CLNHorizontalInset, CLNVerticalInset };
+
 @interface CLNCoolCell ()
 
+@property (class, readonly, nonatomic) NSDictionary *textAttributes;
 @property (getter=isHighlighted, nonatomic) BOOL highlighted;
 
 @end
@@ -9,9 +14,49 @@
 
 @implementation CLNCoolCell
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (!self) return nil;
+    
+    self.backgroundColor = UIColor.brownColor;
+    [self configureLayer];
+    [self configureGestureRecognizers];
+
+    return self;
+}
+
+// FIXME: Handle decoding
+
+
+- (void)configureLayer {
+    self.layer.borderWidth = 3.0;
+    self.layer.borderColor = UIColor.whiteColor.CGColor;
+    
+    self.layer.cornerRadius = 10;
+    self.layer.masksToBounds = YES;
+}
+
+- (void)configureGestureRecognizers {
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bounce)];
+    tapRecognizer.numberOfTapsRequired = 2;
+    [self addGestureRecognizer:tapRecognizer];
+}
+
+- (void)bounce {
+    NSLog(@"In %s", __func__);
+    [self animateBounceWithDuration:1.0 size:CGSizeMake(120, 240)];
+}
+
+// TODO: Make this a class property
 + (NSDictionary *)textAttributes {
     return @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
               NSForegroundColorAttributeName: UIColor.whiteColor };
+}
+
+- (void)setText:(NSString *)text {
+    _text = [text copy];
+    [self sizeToFit];
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -19,13 +64,47 @@
     self.alpha = highlighted ? 0.5 : 1.0;
 }
 
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    CGSize newSize = [self.text sizeWithAttributes:self.class.textAttributes];
+    newSize.width += CLNHorizontalInset * 2;
+    newSize.height += CLNVerticalInset * 2;
+    return newSize;
+}
+
 - (void)drawRect:(CGRect)rect
 {
-    [self.text drawAtPoint:CGPointZero withAttributes:[self.class textAttributes]];
+    [self.text drawAtPoint:CLNTextOrigin withAttributes:self.class.textAttributes];
+}
+
+- (void)configureBounce:(CGSize)size {
+    [UIView setAnimationRepeatCount:3.5];
+    [UIView setAnimationRepeatAutoreverses:YES];
+    CGAffineTransform translation = CGAffineTransformMakeTranslation(size.width, size.height);
+    self.transform = CGAffineTransformRotate(translation, M_PI_2);
+}
+
+- (void)animateBounceCompletionWithDuration:(NSTimeInterval)duration size:(CGSize)size {
+    typeof(self) __weak weakSelf = self;
+    [UIView animateWithDuration:duration animations:^{
+        weakSelf.transform = CGAffineTransformIdentity;
+    }];
+}
+
+// MARK: - Core Animation
+
+- (void)animateBounceWithDuration:(NSTimeInterval)duration size:(CGSize)size
+{
+    typeof(self) __weak weakSelf = self;
+    [UIView animateWithDuration:duration
+                     animations:^{ [weakSelf configureBounce:size]; }
+                     completion:^(BOOL finished) { [weakSelf animateBounceCompletionWithDuration:duration size:size]; }];
 }
 
 @end
 
+
+// MARK: - UIResponder methods
 
 @implementation CLNCoolCell (CLNResponding)
 
@@ -45,6 +124,9 @@
     CGFloat deltaY = currLocation.y - prevLocation.y;
     
     self.frame = CGRectOffset(self.frame, deltaX, deltaY);
+    
+//    self.bounds = CGRectOffset(self.bounds, deltaX, deltaY);
+//    [self setNeedsDisplay];
 }
 
 - (void)finishTouch:(UITouch *)touch {
