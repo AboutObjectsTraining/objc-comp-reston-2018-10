@@ -1,7 +1,7 @@
 #import "CLNCoolViewController.h"
 #import "CLNCoolCell.h"
 
-@interface CLNCoolViewController ()
+@interface CLNCoolViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) UITextField *textField;
 @property (weak, nonatomic) UIView *contentView;
 @end
@@ -19,6 +19,14 @@
     cell.text = self.textField.text;
     [self.contentView addSubview:cell];
 }
+
+// MARK: - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 - (void)loadView
 {
@@ -47,6 +55,7 @@
     [accessoryView addSubview:textField];
     
     self.textField = textField;
+    self.textField.delegate = self;
     
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.placeholder = @"Enter some text";
