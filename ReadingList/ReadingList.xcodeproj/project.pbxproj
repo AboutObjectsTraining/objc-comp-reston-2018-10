@@ -31,6 +31,7 @@
 		AB64C3602170DCC80053B306 /* ReadingListModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AB64C3522170DCC80053B306 /* ReadingListModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB64C3612170DCC80053B306 /* RLMBook.h in Headers */ = {isa = PBXBuildFile; fileRef = AB64C3532170DCC80053B306 /* RLMBook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB64C3712170DE630053B306 /* StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64C3702170DE630053B306 /* StoreTests.m */; };
+		AB64C3742170F73E0053B306 /* RELDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64C3732170F73E0053B306 /* RELDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		AB64C3662170DE310053B306 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB64C36A2170DE310053B306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB64C3702170DE630053B306 /* StoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreTests.m; sourceTree = "<group>"; };
+		AB64C3722170F73E0053B306 /* RELDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RELDataSource.h; sourceTree = "<group>"; };
+		AB64C3732170F73E0053B306 /* RELDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RELDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				AB64C319216FEA1B0053B306 /* AppDelegate.m */,
 				AB64C32E216FFB2F0053B306 /* RELReadingListController.h */,
 				AB64C32F216FFB2F0053B306 /* RELReadingListController.m */,
+				AB64C3722170F73E0053B306 /* RELDataSource.h */,
+				AB64C3732170F73E0053B306 /* RELDataSource.m */,
 				AB64C331216FFFEF0053B306 /* RELViewBookController.h */,
 				AB64C332216FFFEF0053B306 /* RELViewBookController.m */,
 				AB64C31E216FEA1B0053B306 /* Main.storyboard */,
@@ -344,6 +349,7 @@
 			files = (
 				AB64C328216FEA1C0053B306 /* main.m in Sources */,
 				AB64C330216FFB2F0053B306 /* RELReadingListController.m in Sources */,
+				AB64C3742170F73E0053B306 /* RELDataSource.m in Sources */,
 				AB64C31A216FEA1B0053B306 /* AppDelegate.m in Sources */,
 				AB64C333216FFFEF0053B306 /* RELViewBookController.m in Sources */,
 			);

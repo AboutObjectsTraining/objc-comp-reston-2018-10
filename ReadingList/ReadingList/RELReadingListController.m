@@ -1,6 +1,21 @@
 #import "RELReadingListController.h"
+#import "RELViewBookController.h"
+#import "RELDataSource.h"
+#import <ReadingListModel/ReadingListModel.h>
+
+@interface RELReadingListController ()
+@property (strong, nonatomic) IBOutlet RELDataSource *dataSource;
+@end
+
 
 @implementation RELReadingListController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    RELViewBookController *controller = segue.destinationViewController;
+    controller.book = [self.dataSource bookAtIndexPath:self.tableView.indexPathForSelectedRow];
+}
+
 
 - (IBAction)doneEditing:(UIStoryboardSegue *)segue {
     // TODO: Do something here
@@ -12,21 +27,5 @@
     // Does nothing
 }
 
-// MARK: - UITableViewDataSource methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 100;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Book Summary"];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Foo"];
-//    }
-    cell.textLabel.text = [NSString stringWithFormat:@"Row %ld", indexPath.row + 1];
-    return cell;
-}
 
 @end

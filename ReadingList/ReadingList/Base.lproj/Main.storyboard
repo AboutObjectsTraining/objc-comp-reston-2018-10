@@ -63,15 +63,24 @@
                         </prototypes>
                         <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="9Yc-xx-Rq1" id="Q3R-WZ-hpV"/>
+                            <outlet property="dataSource" destination="8nO-D2-oTb" id="AT9-l7-f2m"/>
                             <outlet property="delegate" destination="9Yc-xx-Rq1" id="tkb-Id-5a7"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reading List" id="5Wv-xb-o08">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="qtQ-FF-Dhf"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dataSource" destination="8nO-D2-oTb" id="QmL-H2-RI2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMc-6p-kbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="8nO-D2-oTb" customClass="RELDataSource">
+                    <connections>
+                        <outlet property="storeController" destination="5el-fQ-g3P" id="KqV-RH-051"/>
+                    </connections>
+                </customObject>
+                <customObject id="5el-fQ-g3P" customClass="RLMStoreController"/>
             </objects>
             <point key="canvasLocation" x="-682" y="134"/>
         </scene>
