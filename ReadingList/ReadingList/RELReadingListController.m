@@ -2,6 +2,7 @@
 #import "RELViewBookController.h"
 #import "RELDataSource.h"
 #import <ReadingListModel/ReadingListModel.h>
+#import "UIStoryboardSegue+RELAdditions.h"
 
 @interface RELReadingListController ()
 @property (strong, nonatomic) IBOutlet RELDataSource *dataSource;
@@ -10,17 +11,22 @@
 
 @implementation RELReadingListController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = self.dataSource.title;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    RELViewBookController *controller = segue.destinationViewController;
+    RELViewBookController *controller = segue.rel_destinationViewController;
     controller.book = [self.dataSource bookAtIndexPath:self.tableView.indexPathForSelectedRow];
 }
 
 
 - (IBAction)doneEditing:(UIStoryboardSegue *)segue {
-    // TODO: Do something here
-    // 1.) Sync UI
-    // 2.) Save
+    [self.tableView reloadData];
+    [self.dataSource save];
 }
 
 - (IBAction)cancelEditing:(UIStoryboardSegue *) segue {

@@ -32,6 +32,9 @@
 		AB64C3612170DCC80053B306 /* RLMBook.h in Headers */ = {isa = PBXBuildFile; fileRef = AB64C3532170DCC80053B306 /* RLMBook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB64C3712170DE630053B306 /* StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64C3702170DE630053B306 /* StoreTests.m */; };
 		AB64C3742170F73E0053B306 /* RELDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64C3732170F73E0053B306 /* RELDataSource.m */; };
+		AB64C3772171236F0053B306 /* RELEditBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64C3762171236F0053B306 /* RELEditBookController.m */; };
+		AB64C37A217124350053B306 /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB64C378217124350053B306 /* EditBook.storyboard */; };
+		AB64C37D2171279B0053B306 /* UIStoryboardSegue+RELAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64C37C2171279B0053B306 /* UIStoryboardSegue+RELAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,11 @@
 		AB64C3702170DE630053B306 /* StoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreTests.m; sourceTree = "<group>"; };
 		AB64C3722170F73E0053B306 /* RELDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RELDataSource.h; sourceTree = "<group>"; };
 		AB64C3732170F73E0053B306 /* RELDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RELDataSource.m; sourceTree = "<group>"; };
+		AB64C3752171236F0053B306 /* RELEditBookController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RELEditBookController.h; sourceTree = "<group>"; };
+		AB64C3762171236F0053B306 /* RELEditBookController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RELEditBookController.m; sourceTree = "<group>"; };
+		AB64C379217124350053B306 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ReadingList/Base.lproj/EditBook.storyboard; sourceTree = "<group>"; };
+		AB64C37B2171279B0053B306 /* UIStoryboardSegue+RELAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIStoryboardSegue+RELAdditions.h"; sourceTree = "<group>"; };
+		AB64C37C2171279B0053B306 /* UIStoryboardSegue+RELAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboardSegue+RELAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +166,11 @@
 				AB64C3732170F73E0053B306 /* RELDataSource.m */,
 				AB64C331216FFFEF0053B306 /* RELViewBookController.h */,
 				AB64C332216FFFEF0053B306 /* RELViewBookController.m */,
+				AB64C3752171236F0053B306 /* RELEditBookController.h */,
+				AB64C3762171236F0053B306 /* RELEditBookController.m */,
+				AB64C37B2171279B0053B306 /* UIStoryboardSegue+RELAdditions.h */,
+				AB64C37C2171279B0053B306 /* UIStoryboardSegue+RELAdditions.m */,
+				AB64C378217124350053B306 /* EditBook.storyboard */,
 				AB64C31E216FEA1B0053B306 /* Main.storyboard */,
 				AB64C321216FEA1C0053B306 /* Assets.xcassets */,
 				AB64C323216FEA1C0053B306 /* LaunchScreen.storyboard */,
@@ -322,6 +335,7 @@
 				AB64C325216FEA1C0053B306 /* LaunchScreen.storyboard in Resources */,
 				AB64C322216FEA1C0053B306 /* Assets.xcassets in Resources */,
 				AB64C320216FEA1B0053B306 /* Main.storyboard in Resources */,
+				AB64C37A217124350053B306 /* EditBook.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +362,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB64C328216FEA1C0053B306 /* main.m in Sources */,
+				AB64C37D2171279B0053B306 /* UIStoryboardSegue+RELAdditions.m in Sources */,
 				AB64C330216FFB2F0053B306 /* RELReadingListController.m in Sources */,
+				AB64C3772171236F0053B306 /* RELEditBookController.m in Sources */,
 				AB64C3742170F73E0053B306 /* RELDataSource.m in Sources */,
 				AB64C31A216FEA1B0053B306 /* AppDelegate.m in Sources */,
 				AB64C333216FFFEF0053B306 /* RELViewBookController.m in Sources */,
@@ -406,6 +422,14 @@
 				AB64C324216FEA1C0053B306 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AB64C378217124350053B306 /* EditBook.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB64C379217124350053B306 /* Base */,
+			);
+			name = EditBook.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

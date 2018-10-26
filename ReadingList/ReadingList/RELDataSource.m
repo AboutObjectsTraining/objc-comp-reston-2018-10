@@ -15,8 +15,23 @@
     return _readingList;
 }
 
+- (NSString *)title {
+    return self.readingList.title;
+}
+
+
+/**
+ Returns the @c RLMBook corresponding to the provided index path.
+ 
+ @param indexPath index path of a book
+ @return an instance of `RLMBook`
+ */
 - (RLMBook *)bookAtIndexPath:(NSIndexPath *)indexPath {
     return [self.readingList bookAtIndexPath:indexPath];
+}
+
+- (void)save {
+    [self.storeController saveReadingList:self.readingList];
 }
 
 // MARK: - UITableViewDataSource methods

@@ -4,6 +4,8 @@
 
 @interface RELDataSource : NSObject <UITableViewDataSource>
 
+- (NSString *)title;
 - (RLMBook *)bookAtIndexPath:(NSIndexPath *)indexPath;
+- (void)save;
 
 @end
